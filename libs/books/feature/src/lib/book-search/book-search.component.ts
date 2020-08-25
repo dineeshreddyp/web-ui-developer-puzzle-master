@@ -9,6 +9,7 @@ import {
 } from '@tmo/books/data-access';
 import { FormBuilder } from '@angular/forms';
 import { Book } from '@tmo/shared/models';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'tmo-book-search',
@@ -33,6 +34,7 @@ export class BookSearchComponent implements OnInit {
     if(this.searchForm.value.term===''){
       this.books = [];
     }
+    
     return this.searchForm.value.term;
   }
 
@@ -44,6 +46,7 @@ export class BookSearchComponent implements OnInit {
       this.isLoading = false;
       }
     });
+    this.searchForm.get('term').valueChanges.pipe(debounceTime(500)).subscribe(value => this.searchBooks());
   }
 
   formatDate(date: void | string) {
