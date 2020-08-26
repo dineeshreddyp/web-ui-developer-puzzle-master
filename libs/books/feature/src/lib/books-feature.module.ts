@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TotalCountComponent } from './total-count/total-count.component';
 import { ReadingListComponent } from './reading-list/reading-list.component';
@@ -30,6 +31,7 @@ const EXPORTS = [
     FormsModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
     RouterModule.forChild([
       { path: '', pathMatch: 'full', component: BookSearchComponent }
     ]),
